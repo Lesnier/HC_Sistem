@@ -2163,7 +2163,7 @@ public function VerReceta($codigo)
 								$estadopac=$fila['auxmovimiento_pac'];
 								$this->fechaNac= ($fila['fechaN_pac'] == '0000-00-00' ? date("Y-m-d"):$fila['fechaN_pac'] );
 								$this->fechaiauto_pac = ($fila['fechaiauto_pac'] == '0000-00-00'?  date("Y-m-d"):$fila['fechaiauto_pac'] ); 
-								$apellido = utf8_encode($fila['nombresCom_pac']);
+								$apellido = $fila['nombresCom_pac'];
 								echo "<tr>
 								<td>Cédula:</td><td><input type='text' id='txtcedulaUsu1' value='$fila[cedula_pac]'   /></td>
 								<td>Pasaporte:</td><td><input  type='text' id='txtPasport' value='$fila[pasaporte_pac]'   /></td>

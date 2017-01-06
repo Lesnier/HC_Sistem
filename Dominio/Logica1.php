@@ -653,7 +653,7 @@ public function CargarDatosUpdatePaciente($cedula,$pro){
 		foreach ($datos as $fila) {
 			echo "<tr>
 					<td>$fila[cedula_pac]</td>
-					<td>".utf8_encode($fila["nombresCom_pac"])."</td>
+					<td>".$fila["nombresCom_pac"]."</td>
 					<td>$fila[auxmovimiento_pac]</td>
 					";
 				switch ($pro) {
