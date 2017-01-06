@@ -1,0 +1,33 @@
+#main{
+	border: 1px solid 'navy';
+	display: table;
+}
+
+#tratamiento{
+/*	display: table-cell;  
+	width: 400px;*/  
+
+	padding-right: 10px;  	
+	margin-top: -30px;  	
+	
+}
+
+#odontograma{
+
+	
+	padding-top: 10px;  	
+	border: 1px solid darkgrey;
+	border-radius: 4px;
+	box-shadow:4px 4px 4px 4px darkgrey;
+	width: 620px;	
+}
+#ListaOdonto{
+	float: right;
+	margin-top: -270px;
+	/*border:1px solid black;*/
+	width:320px;
+	font-size:12px;
+}
+#LoadDAtosOdontogramaLight{
+	margin-top:20px;
+}

@@ -1,0 +1,46 @@
+body
+{
+	background-image:url(../images/fondo.gif);
+}
+#container
+{
+	background-image:url(../images/unimed_login.jpg);
+	width:900px;
+	height:500px;
+	margin:auto;
+	background-color:#fff;
+	position:relative;
+	margin-top:10%;
+}
+#ContainerLog
+{
+	margin-left:0%;
+	width:290px;
+	height:200px;
+	margin-top:30%;
+	float:left;
+	color:gray;
+}
+#MainLogin 
+{
+	margin-left:30%;
+	float:left;
+	color:gray;
+}
+
+#MensajeErrorDeUser
+{
+	float:left;
+	margin-top:10%;
+	margin-left:10%;
+	font-size:20px;
+	font-style:italic;
+	text-shadow:0px 0px 20px yellow;
+}
+#BotonAdministrador
+{
+	float:left;
+	margin-left:75%;
+	margin-top:-10%;
+	
+}

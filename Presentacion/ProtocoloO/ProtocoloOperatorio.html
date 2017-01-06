@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html ng-app="ProtocoloOp"><!--aplicacion-->
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="../js/angular.js"></script>
+	<script type="text/javascript" src="js/ControlerProtocolo.js"></script>
+
+	<script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+	<link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/bootstrap-responsive.css" type="text/css"/>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+	<div class='container-fluid'>
+	 <div class="row-fluid">
+        <div class="span2">
+        </div>
+        <div class="span8">	</div>
+
+
+
+         <div id="" ng-controller='First'> <!--Incio del controler-->
+		
+
+
+          	<table class="table table-bordered table-striped table-condensend ">
+          		<tr>
+          			<td>PROTOCOLO OPERATORIO</td>
+          			<td colspan="2">
+                              <center>DPTO. ENDOSCOPIA ANESTESIOLOGICA</center></BR> <center><input type="text" ng-model="SERVICIO"></center>
+                         </td>
+          			<td>CLINICA DE URULOGIA</td>
+          		</tr>
+          		<tr>
+          			<td>NOMBRE</td>
+          			<td><input type="text" ng-model="NOMBRE" />	 </td>
+          			<td>HCL</td>
+          			<td><input type="text" ng-model="HCL" /></td>
+          		</tr>
+          		<tr>
+          			<td colspan="4">
+          				<center>A. DIAGNOSTICO</center>
+          			</td>
+          		</tr>
+          		<tr>
+          			<td>PRE-OPERATORIO</td>
+          			<td colspan="3"><input type="text" class="span8" ng-model="PRE"/></td>
+          		</tr>
+          		<tr>
+          			<td>POST-OPERATORIO</td>
+          			<td colspan="3"><input type="text" class="span8" ng-model="POST"/></td>
+          		</tr>
+          		<tr>
+          			<td>CIRUGIA EFECTUADA</td>
+          			<td colspan="3">
+                              <div class="input-append">
+                                   <input type="text" class="span12" ng-model="CIRUGIA"/> 
+                                   <a href='#myModal' role='button' class='btn' data-toggle='modal'><i class="icon-search"></i> Buscar</a>
+                              </div>
+
+                              
+                              <table class="table table-bordered">
+                                   <tr ng-show="ListCirugia.length>0">
+                                        <th ng-show="ListCirugia.length>0">Codigo</th>
+                                        <th ng-show="ListCirugia.length>0">Descripcion</th>
+                                        <th ng-show="ListCirugia.length>0">Valor</th>
+                                        <th ></th>
+                                   </tr>
+                                   <tr ng-repeat='list in ListCirugia'>
+                                        <td>{{list.Codigo}}</td>
+                                        <td>{{list.Descripcion}}</td>
+                                        <td>{{list.Precio}}</td>
+                                        <td><a href="#" ng-click="DeleteCirugia(list)" class="btn"><i class=" icon-trash"></i></a></td>
+                                   </tr>
+                              </table>
+                              
+                              </td>
+          		</tr>
+          		<tr>
+          			<td colspan="4">
+          				<center>
+          					B. EQUIPO OPERATORIO
+          				</center>
+          			</td>
+          		</tr>
+          		<tr>
+          			<td>
+                              <div class="form-inline">
+                                   CIRUJANO <a  href='#myModal1' ng-click="AsignarMedico=1" role='button' class='btn' data-toggle='modal'><i class="icon-search"></i></a>     
+                              </div>
+                         </td>
+          			<td>{{CIRUJANO}}</td>
+
+          			<td>
+                              <div class="form-inline">
+                                   ANESTESIOLGO <a  href='#myModal1' ng-click="AsignarMedico=2" role='button' class='btn' data-toggle='modal'><i class="icon-search"></i></a>     
+                              </div>
+                         </td>
+          			<td>{{ANESTESIOLOGO}}</td>
+          		</tr>
+          		<tr>
+          			<td>
+                               <div class="form-inline">
+                                   COOCIRUJANO <a  href='#myModal1' ng-click="AsignarMedico=3" role='button' class='btn' data-toggle='modal'><i class="icon-search"></i></a>     
+                              </div>
+                         </td>
+          			<td>{{COOCIRUJANO}}</td>
+          			<td>
+                              INSTRUMENTISTA
+                         </td>
+          			<td><input type="text" class="span12" ng-model="INSTRUMENTISTA"></td>
+          		</tr>
+          		<tr>
+          			<td>
+                              <div class="form-inline">
+                                   PRIMER AYUDANTE <a  href='#myModal1' ng-click="AsignarMedico=4" role='button' class='btn' data-toggle='modal'><i class="icon-search"></i></a>     
+                              </div>
+                         </td>
+          			<td>{{PRIMERAYUDANTE}}</td>
+          			<td>CIRCULANTE</td>
+          			<td><input type="text" class="span12" ng-model="CIRCULANTE"></td>
+          		</tr>
+          		<tr>
+          			<td>
+                               <div class="form-inline">
+                                   SEGUNDO AYUDANTE <a  href='#myModal1' ng-click="AsignarMedico=5" role='button' class='btn' data-toggle='modal'><i class="icon-search"></i></a>     
+                              </div>
+                         </td>
+          			<td>{{SEGUNDOAYUDANTE}}</td>
+          			<td>ECOGRAFISTA</td>
+          			<td><input type="text" class="span12" ng-model="ECOGRAFISTA"></td>
+          		</tr>
+          		<tr>
+          			<td colspan="4"></td>
+          		</tr>
+          		<tr>
+          			<td colspan="2">
+          				<center>FECHA CIRUGIA</center>
+          			</td>
+          			<td>
+          				<center>D. TIPO DE ANESTESIA</center>
+          			</td>
+          			<td>
+          				<center>E. TIEMPO QUIRURGICO</center>
+          			</td>
+          		</tr>
+          		<tr>
+          			<td colspan="2">
+          				
+          				<center>
+          					FECHA <input type="date"   ng-model="FECHA1">
+          				</center>
+          				<hr>
+          				<!--HORA 1<input type="text" ng-model="HORAI">-->
+          				HORA 1 <select ng-model="HORAI">
+		          					<option value="">--Seleccione--</option>
+		          					<option ng-repeat='data1 in DataHora' value="{{data1.id}}" >{{data1.hora}}</option>
+          						</select>
+          				<!--HORA 2<input type="text" ng-model="HORAF">-->
+          				HORA 2 <select ng-change="CalcularHour()" ng-model="HORAF">
+		          					<option value="">--Seleccione--</option>
+		          					<option ng-repeat='data2 in DataHora' value="{{data2.id}}" >{{data2.hora}}</option>
+          						</select>
+          			</td>
+          			<td>
+          				<input type="text" ng-model="TIPOANESTESIA">
+          			</td>
+          			<td>
+          				<input type="text" ng-model="TQUIRURGICO">
+          			</td>
+          		</tr>
+          		<tr>
+          			<td colspan="4">
+          				<center>
+          					F. PROTOCOLO OPERATORIO
+          				</center>
+          			</td>
+          		</tr>
+          		<tr>
+          			<td colspan="4">
+          				HALLAZGOS<HR>
+          				<textarea cols="30" rows="5" class="span12" ng-model="HALLAZGOS" ></textarea>
+          			</td>
+          		</tr>
+          		<tr>
+          			<td colspan="4">
+          				ETO PROCEDIMIENTOS<HR>
+          				<textarea cols="30" rows="5" class="span12" ng-model="PROCEDIMIENTOS" ></textarea>
+          			</td>
+          		</tr>
+          		<tr>
+          			<td colspan="4">
+          				COMPLICACIONES<HR>
+          				<textarea cols="30" rows="5" class="span12" ng-model="COMPLICACIONES" ></textarea>
+          			</td>
+          		</tr>
+          		<tr>
+          			<td colspan="2">
+          				<center>SANGRADO</center>
+          			</td>
+          			<td colspan="2">
+          				<center>
+          					HISTOPATOLOGIA
+          				</center>
+          			</td>
+          		</tr>
+          		<tr>
+          			<td colspan="2">
+          				<center><input type="text" ng-model="SANGRADO" />+/- CC</center>
+          			</td>
+          			<td colspan="2">
+          				<center>   
+                                   <!--<input type="text" ng-model="HISTOPATOLOGIA" />-->
+                                   <select ng-model="HISTOPATOLOGIA">
+                                        <option value="">--Seleccione--</option>
+                                        <option value="SI">SI</option>
+                                        <option value="NO">NO</option>
+                                   </select>
+                              </center>
+          			</td>
+          		</tr>
+          		<tr>
+          			<td>
+                              <div class="form-inline">
+                                   PREPARADO POR <a  href='#myModal1' ng-click="AsignarMedico=6" role='button' class='btn' data-toggle='modal'><i class="icon-search"></i></a>     
+                              </div>
+                         </td>
+          			<td>FECHA</td>
+          			<td>APROBADO POR</td>
+          			<td>FECHA</td>
+          		</tr>
+          		<tr>
+          			<td>{{PREPARADPOR}}</td>
+          			<td><input type="date" ng-model="FECHA2" /></td>
+          			<td><input type="text" ng-model="APROBADOPOR" /></td>
+          			<td><input type="date" ng-model="FECHA3" /></td>
+          		</tr>
+
+
+
+
+
+
+
+          		<tr>
+          			<td colspan="4">
+          				<center>
+          					<input type="button" ng-show="PERMISOS==5 || PERMISOS==1" value="Guardar" class="btn btn-primary" ng-click="NuevoProtocolo()" />
+                                   <input type="button" ng-show="PERMISOS==1" value="Aprobar" class="btn btn-info" ng-click="">
+                                   <a  href='#myModal1' ng-show="PERMISOS==5 || PERMISOS==3 || PERMISOS==1" ng-click="" role='button' class='btn' data-toggle='modal'><i class="icon-file"></i></a>
+                                   <input type="button"  value="Cancelar" class="btn btn-success" ng-click="" />
+          				</center>
+          			</td>
+          		</tr>
+          	</table>
+
+
+
+			
+
+
+			
+
+
+
+
+                    <!-- Button to trigger modal -->
+                     <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                         <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                         <h3 id="myModalLabel">Quantum</h3>
+                    </div>
+                         <div class="modal-body" >
+                            <div class="" >
+                                   <table class="table table-bordered table-striped ">
+                                        <tr>
+                                             <td>
+                                                  <center>
+                                                       <div class="input-append">
+                                                            <input type="text" ng-model="Buscador" ng-keypress="BuscarCirugia()" ><a href="#" class="btn"><i class='icon-search'></i></a>
+                                                       </div>
+                                                  </center>
+                                             </td>
+                                        </tr>
+                                   </table>
+                                   <table class="table table-bordered table-striped ">
+                                        <tr>
+                                             <th>Codigo</th>
+                                             <th>Descripcion</th>
+                                             <th>Precio</th>
+                                             <th></th>
+                                        </tr>
+                                        <tr ng-repeat='iess in DataCirugia'>
+                                             <td>{{iess.Codigo}}</td>
+                                             <td>{{iess.Descripcion}}</td>
+                                             <td>{{iess.Precio}}</td>
+                                             <td>
+                                                  <input type="button" class="btn" ng-click="CatchObject(iess)" value="Seleccionar">
+                                                  <!--<a href="#" ng-click="CatchObject({{iess}})"  class="btn"> Seleccionar</a>-->
+                                             </td>
+                                        </tr>
+                                   </table>
+                            </div>
+                         </div>
+
+                         <div class="modal-footer">
+                              <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                            
+                         </div>
+                   </div>
+
+
+
+
+               <div id="myModal1" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                         <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                         <h3 id="myModalLabel1">Quantum</h3>
+                    </div>
+                         <div class="modal-body" >
+                            <div class="" >
+                              <table class="table table-bordered table-striped ">
+                                        <tr>
+                                             <td>
+                                                  <center>
+                                                       <div class="input-append">
+                                                            <input type="text" ng-model="BuscadorM" ng-keypress="BuscarMedico()" ><a href="#" class="btn"><i class='icon-search'></i></a>
+                                                       </div>
+                                                  </center>
+                                             </td>
+                                        </tr>
+                                   </table>
+                                   <table class="table table-bordered table-striped ">
+                                        <tr>
+                                             <th>Codigo</th>
+                                             <th>Cedula</th>
+                                             <th>Medico</th>
+                                             <th></th>
+                                        </tr>
+                                        <tr ng-repeat='medico in DataMedico'>
+                                             <td>{{medico.Codigo}}</td>
+                                             <td>{{medico.Cedula}}</td>
+                                             <td>{{medico.Medico}}</td>
+                                             <td>
+                                                  <input type="button" class="btn" ng-click="CatchObjectM(medico)" value="Seleccionar">
+                                             </td>
+                                        </tr>
+                                   </table>
+                              
+                            </div>
+                         </div>
+                         <div class="modal-footer">
+                              <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                         </div>
+               </div>
+
+
+
+
+
+
+		</div> <!--Fin del controler-->
+		<div class="span2"> </div>
+
+		</div>
+	</div>
+
+
+       
+
+
+</body>
+</html>

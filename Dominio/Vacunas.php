@@ -1,0 +1,134 @@
+<?php
+ class Vacunas
+ {
+ 	public function Consultar_Vacunas($sql)
+	{
+		$base=new Conexion;
+		$con=$base->conectardb();
+		$res=$con->Execute($sql);
+		$datos=array();
+		while(!$res->EOF)
+		{
+			$datos[]=array("id_vacunas"=>$res->fields[0],
+							"1dodpt_vacunas"=>$res->fields[1],
+							"2dodpt_vacunas"=>$res->fields[2],
+							"3dodpt_vacunas"=>$res->fields[3],
+							"1redpt_vacunas"=>$res->fields[4],
+							"2redpt_vacunas"=>$res->fields[5],
+							"obdpt_vacunas"=>$res->fields[6],
+							"1dopo_vacunas"=>$res->fields[7],
+							"2dopo_vacunas"=>$res->fields[8],
+							"3dopo_vacunas"=>$res->fields[9],
+							"1repo_vacunas"=>$res->fields[10],
+							"2repo_vacunas"=>$res->fields[11],
+							"obpo_vacunas"=>$res->fields[12],
+							"1dohib_vacunas"=>$res->fields[13],
+							"2dohib_vacunas"=>$res->fields[14],
+							"3dohib_vacunas"=>$res->fields[15],
+							"1rehib_vacunas"=>$res->fields[16],
+							"2rehib_vacunas"=>$res->fields[17],
+							"obhib_vacunas"=>$res->fields[18],
+							"1dohvb_vacunas"=>$res->fields[19],
+							"2dohvb_vacunas"=>$res->fields[20],
+							"3dohvb_vacunas"=>$res->fields[21],
+							"1rehvb_vacunas"=>$res->fields[22],
+							"2rehvb_vacunas"=>$res->fields[23],
+							"obhvb_vacunas"=>$res->fields[24],
+							"1doneumo_vacunas"=>$res->fields[25],
+							"2doneumo_vacunas"=>$res->fields[26],
+							"3doneumo_vacunas"=>$res->fields[27],
+							"1reneumo_vacunas"=>$res->fields[28],
+							"2reneumo_vacunas"=>$res->fields[29],
+							"obneumo_vacunas"=>$res->fields[30],
+							"1dorota_vacunas"=>$res->fields[31],
+							"2dorota_vacunas"=>$res->fields[32],
+							"3dorota_vacunas"=>$res->fields[33],
+							"1rerota_vacunas"=>$res->fields[34],
+							"2rerota_vacunas"=>$res->fields[35],
+							"obrota_vacunas"=>$res->fields[36],
+							"1dospr_vacunas"=>$res->fields[37],
+							"2dospr_vacunas"=>$res->fields[38],
+							"3dospr_vacunas"=>$res->fields[39],
+							"1respr_vacunas"=>$res->fields[40],
+							"2respr_vacunas"=>$res->fields[41],
+							"obspr_vacunas"=>$res->fields[42],
+							"1dovari_vacunas"=>$res->fields[43],
+							"2dovari_vacunas"=>$res->fields[44],
+							"3dovari_vacunas"=>$res->fields[45],
+							"1revari_vacunas"=>$res->fields[46],
+							"2revari_vacunas"=>$res->fields[47],
+							"obvari_vacunas"=>$res->fields[48],
+							"1dohva_vacunas"=>$res->fields[49],
+							"2dohva_vacunas"=>$res->fields[50],
+							"3dohva_vacunas"=>$res->fields[51],
+							"1rehva_vacunas"=>$res->fields[52],
+							"2rehva_vacunas"=>$res->fields[53],
+							"obhva_vacunas"=>$res->fields[54],
+							"1dofama_vacunas"=>$res->fields[55],
+							"2dofama_vacunas"=>$res->fields[56],
+							"3dofama_vacunas"=>$res->fields[57],
+							"1refama_vacunas"=>$res->fields[58],
+							"2refama_vacunas"=>$res->fields[59],
+							"obfama_vacunas"=>$res->fields[60],
+							"1doinflu_vacunas"=>$res->fields[61],
+							"2doinflu_vacunas"=>$res->fields[62],
+							"3doinflu_vacunas"=>$res->fields[63],
+							"1reinflu_vacunas"=>$res->fields[64],
+							"2reinflu_vacunas"=>$res->fields[65],
+							"obinflu_vacunas"=>$res->fields[66],
+							"1domeningo_vacunas"=>$res->fields[67],
+							"2domeningo_vacunas"=>$res->fields[68],
+							"3domeningo_vacunas"=>$res->fields[69],
+							"1remeningo_vacunas"=>$res->fields[70],
+							"2remeningo_vacunas"=>$res->fields[71],
+							"obmeningo_vacunas"=>$res->fields[72],
+							"1dohpv_vacunas"=>$res->fields[73],
+							"2dohpv_vacunas"=>$res->fields[74],
+							"3dohpv_vacunas"=>$res->fields[75],
+							"1rehpv_vacunas"=>$res->fields[76],
+							"2rehpv_vacunas"=>$res->fields[77],
+							"obhpv_vacunas"=>$res->fields[78],
+							"1doftifo_vacunas"=>$res->fields[79],
+							"2doftifo_vacunas"=>$res->fields[80],
+							"3doftifo_vacunas"=>$res->fields[81],
+							"1reftifo_vacunas"=>$res->fields[82],
+							"2reftifo_vacunas"=>$res->fields[83],
+							"obftifo_vacunas"=>$res->fields[84],
+							"est_vacunas"=>$res->fields[85],
+							"id_pac"=>$res->fields[86],
+							"1dodp_vacunas"=>$res->fields[87],
+							"2dodp_vacunas"=>$res->fields[88],
+							"3dodp_vacunas"=>$res->fields[89],
+							"1redp_vacunas"=>$res->fields[90],
+							"2redp_vacunas"=>$res->fields[91],
+							"obdp_vacunas"=>$res->fields[92]
+							
+							);
+			$res->MoveNext();
+		}
+		$res->Close();
+		return $datos;
+	}
+	public function Consultar($sql)
+	{
+		$base=new Conexion;
+		$con=$base->conectardb();
+		$res=$con->Execute($sql);
+		return $res->fields[0];
+	}
+	public function Ejecutar($sql)
+	{
+		$base=new Conexion;
+		$con=$base->conectardb();
+		$res=$con->Execute($sql);
+		if(!$res)
+		{
+			return $con->ErrorMsg();
+		}
+		else
+		{
+			return "La informacion se ejecuto correctamente";
+		}
+	}
+ }
+?>
