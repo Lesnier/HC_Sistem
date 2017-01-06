@@ -955,7 +955,7 @@ public function SaveCitaCirugia($id_pac,$cirj_cir,$antes_cir,$ayudan_cir,$fechac
 			";
 				foreach ($datos as $fila) {
 					$esp=$user->Consultar("SELECT descripcion_esp FROM tbl_especialida WHERE id_esp='$fila[id_esp]'");
-					$username =utf8_encode( $fila['nombresCom_usu']);
+					$username =$fila['nombresCom_usu'];
 					echo " 
 						<tr>
 							<td>$fila[cedula_usu]</td>
@@ -984,9 +984,9 @@ public function SaveCitaCirugia($id_pac,$cirj_cir,$antes_cir,$ayudan_cir,$fechac
 		echo "<table class='table table-hover table-striped table-condensend table-bordered' style='font-family:Times New Roman, Georgia, Serif; font-size:17px;'>";
 		foreach ($datosUser as $fila) {
 			$pos=($fila['id_esp'])-1;
-			$apellido = utf8_encode($fila['apellidos_usu']);
-		    $name = utf8_encode($fila['nombres_usu']);
-		    $direccion = utf8_encode($fila['direccion_usu']);
+			$apellido = $fila['apellidos_usu'];
+		    $name = $fila['nombres_usu'];
+		    $direccion = $fila['direccion_usu'];
 			echo "
 				 <tr>
 				    <td>Cédula: </td>
